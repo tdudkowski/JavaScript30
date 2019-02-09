@@ -1,0 +1,77 @@
+body {
+ margin: 0;
+ font-family: 'Courier New', Courier, monospace;
+ background-image: url(assets/auditorium.jpg);
+ background-size: cover;
+}
+
+span {
+ float: right;
+ font-size: 4rem;
+ color: #eee;
+}
+
+div {
+ background-color: rgba(100, 100, 100, .3);
+ color: #ddd;
+ padding: 1rem;
+ border: 2px solid #333;
+}
+
+div a {
+ color: #3dd;
+}
+
+div button {
+ background-color: #eee;
+ border: 1px solid #333;
+ padding: .3rem;
+}
+
+main {
+ position: absolute;
+ width: 100%;
+ height: 100px;
+ background-color: rgba(60, 60, 60, .6);
+ border: 2px solid#eee;
+ border-width: 3px 0;
+}
+
+main ul {
+ display: flex;
+ width: 20rem;
+ list-style-type: none;
+ padding-left: 0;
+ margin: 0 auto;
+}
+
+main ul li {
+ height: 5rem;
+ border: 1px solid #eee;
+ background-color: rgba(60, 60, 60, .6);
+ margin: .5rem;
+ font-size: 4rem;
+ line-height: 5rem;
+ text-align: center;
+ color: #eee;
+ transition: .1s;
+ user-select: none;
+}
+
+.active {
+ box-shadow: 2px 2px 5px #ff0;
+ transform: scale(1.06);
+}
+
+@media (min-height: 611px) {
+ main {
+  top: 50%;
+  transform: translateY(-50%);
+ }
+}
+
+@media (min-width: 690px) {
+ main ul li {
+  min-width: 80px;
+ }
+}

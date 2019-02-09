@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Drum Kit</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ <span></span>
+ <div>
+  <h1>JavaScript30 - Drum Kit</h1>
+  <p>Upgraded version of JS Drum Kit from #JavaScript30</p>
+  <ul>
+   <li>it's not cluttering when keys are pressed constantly</li>
+   <li>added an action on screen elements as well</li>
+   <li>and (surprise!) Random Player is added</li>
+  </ul>
+  <p>Pressing on keys on the keyboard makes sounds. Sound samples source: <a href="https://freewavesamples.com/">Free
+    Wave Samples</a>. Number at the right left corner is the keyCode of last key you pressed.</p>
+  <p>And here comes the legendary <strong><label for="">Random Player</label></strong> <button class="start">[ START ]</button><button
+    class="stop">[ STOP ]</button></p>
+ </div>
+ <main>
+  <ul>
+   <li data-key="88" class="key">x</li>
+   <li data-key="70" class="key">f</li>
+   <li data-key="71" class="key">g</li>
+   <li data-key="72" class="key">h</li>
+   <li data-key="74" class="key">j</li>
+  </ul>
+ </main>
+ <audio data-key="88" src="assets/Bass-Drum-1.wav"></audio>
+ <audio data-key="70" src="assets/Closed-Hi-Hat-1.wav"></audio>
+ <audio data-key="71" src="assets/Ensoniq-ESQ-1-Snare.wav"></audio>
+ <audio data-key="72" src="assets/E-Mu-Proteus-FX-TubeBels-C6.wav"></audio>
+ <audio data-key="74" src="assets/Alesis-Sanctuary-QCard-Choir-Ooh-C4.wav"></audio>
+
+ <!-- SCRIPT -->
+ <script src="main.js"></script>
+</body>
+
+</html>
