@@ -12,7 +12,7 @@
    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
    const minutesDegrees = ((minutes / 60) * 360) + 90;
    minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
-   const hoursDegrees = ((hours / 60) * 360);
+   const hoursDegrees = ((hours / 12) * 360) + 90;
    hoursHand.style.transform = `rotate(${hoursDegrees}deg)`;
    if (seconds < 10) {
     seconds = `0${seconds}`;
