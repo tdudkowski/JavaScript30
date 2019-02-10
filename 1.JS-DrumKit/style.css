@@ -1,77 +1,66 @@
-body {
- margin: 0;
- font-family: 'Courier New', Courier, monospace;
- background-image: url(assets/auditorium.jpg);
- background-size: cover;
-}
+  body {
+   margin: 0;
+   background-color: #ddd;
+  }
 
-span {
- float: right;
- font-size: 4rem;
- color: #eee;
-}
+  .eclock {
+   position: absolute;
+   left: 50%;
+   top: 3rem;
+   transform: translateX(-50%);
+   width: 20rem;
+   height: 4rem;
+   border: 10px solid #333;
+   border-radius: 5px;
+   font-size: 4rem;
+   line-height: 4rem;
+   text-align: center;
+   background-color: #666;
+   color: #ddd;
+   font-family: monospace;
+   font-weight: bold;
+  }
 
-div {
- background-color: rgba(100, 100, 100, .3);
- color: #ddd;
- padding: 1rem;
- border: 2px solid #333;
-}
+  .clock {
+   position: absolute;
+   left: 50%;
+   top: 10rem;
+   transform: translateX(-50%);
+   width: 300px;
+   height: 300px;
+   border: 10px solid #666;
+   border-radius: 50%;
+  }
 
-div a {
- color: #3dd;
-}
+  .clock div {
+   position: absolute;
+   left: 0;
+   top: 50%;
+   background-color: #666;
+   transform: rotate(90deg);
+   transform-origin: 100%;
+  }
 
-div button {
- background-color: #eee;
- border: 1px solid #333;
- padding: .3rem;
-}
+  .clock .seconds {
+   height: 3px;
+   width: 50%;
+  }
 
-main {
- position: absolute;
- width: 100%;
- height: 100px;
- background-color: rgba(60, 60, 60, .6);
- border: 2px solid#eee;
- border-width: 3px 0;
-}
+  .clock .minutes {
+   width: 45%;
+   height: 5px;
+   left: 5%;
+  }
 
-main ul {
- display: flex;
- width: 20rem;
- list-style-type: none;
- padding-left: 0;
- margin: 0 auto;
-}
+  .clock .hours {
+   left: 10%;
+   width: 40%;
+   height: 10px;
+  }
 
-main ul li {
- height: 5rem;
- border: 1px solid #eee;
- background-color: rgba(60, 60, 60, .6);
- margin: .5rem;
- font-size: 4rem;
- line-height: 5rem;
- text-align: center;
- color: #eee;
- transition: .1s;
- user-select: none;
-}
-
-.active {
- box-shadow: 2px 2px 5px #ff0;
- transform: scale(1.06);
-}
-
-@media (min-width:890px;) and (min-height: 611px) {
- main {
-  top: 50%;
-  transform: translateY(-50%);
- }
-}
-
-@media (min-width: 690px) {
- main ul li {
-  min-width: 80px;
- }
-}
+  @media (min-height:600px) {
+   .clock {
+    top: 50%;
+    transform: translate(-50%, -50%);
+   }
+  }
