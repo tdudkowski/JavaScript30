@@ -23,8 +23,8 @@
   .clock {
    position: absolute;
    left: 50%;
-   top: 50%;
-   transform: translate(-50%, -50%);
+   top: 7rem;
+   transform: translateX(-50%);
    width: 300px;
    height: 300px;
    border: 10px solid #666;
@@ -55,4 +55,11 @@
    left: 10%;
    width: 40%;
    height: 10px;
+  }
+
+  @media (min-height:550px) {
+   .clock {
+    top: 50%;
+    transform: translate(-50%, -50%);
+   }
   }
