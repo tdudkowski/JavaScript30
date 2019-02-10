@@ -7,23 +7,25 @@
   .eclock {
    position: absolute;
    left: 50%;
-   top: 20px;
+   top: 3rem;
    transform: translateX(-50%);
    width: 300px;
    height: 4rem;
-   border: 10px solid #666;
-   border-radius: 5%;
+   border: 10px solid #333;
+   border-radius: 5px;
    font-size: 4rem;
    line-height: 4rem;
    text-align: center;
-   color: #666;
+   background-color: #666;
+   color: #ddd;
    font-family: monospace;
+   font-weight: bold;
   }
 
   .clock {
    position: absolute;
    left: 50%;
-   top: 7rem;
+   top: 10rem;
    transform: translateX(-50%);
    width: 300px;
    height: 300px;
@@ -57,7 +59,7 @@
    height: 10px;
   }
 
-  @media (min-height:550px) {
+  @media (min-height:600px) {
    .clock {
     top: 50%;
     transform: translate(-50%, -50%);
