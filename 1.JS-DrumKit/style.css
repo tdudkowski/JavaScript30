@@ -63,7 +63,7 @@ main ul li {
  transform: scale(1.06);
 }
 
-@media (min-height: 611px) {
+@media (min-width:768) and (min-height: 611px) {
  main {
   top: 50%;
   transform: translateY(-50%);
