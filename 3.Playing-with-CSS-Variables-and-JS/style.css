@@ -1,0 +1,37 @@
+:root {
+ --base: #fda;
+ --spacing: 10px;
+ --opacity: 0%;
+ text-align: center;
+}
+
+body {
+ margin: 0;
+ background-color: var(--base);
+ color: #fff;
+ font-family: monospace;
+}
+
+a {
+ color: var(--base);
+ text-decoration: none;
+}
+
+img {
+ padding-top: var(--spacing);
+ border: 10px solid var(--base);
+ filter: opacity(var(--opacity));
+}
+
+.controls {
+ text-align: center;
+ margin-bottom: 50px;
+ padding: 1rem;
+ width: 30rem;
+ border: 3px solid #444;
+ background-color: #933;
+}
+
+input {
+ width: 100%;
+}
