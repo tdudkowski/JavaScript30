@@ -62,29 +62,49 @@
   </ol>
   
   <h3>List of main array methods</h3>
-  <ul>
-<li><strong>filter()</strong> finds all elements matching query; makes new array from the result of callback function, if negative new array is empty</li>
-<li><strong>map()</strong> calls a function for all elements of an array; makes new array from the result of callback function</li>
-
-<li><strong>includes()</strong>	finds if searched element is in an array; returns bolean</li>
-<li><strong>find()</strong> finds the first element matching query; returns it or undefined if not found</li>
-<li><strong>findIndex()</strong>	finds the first element matching query; returns its index or -1 if not found</li>
-<li><strong>indexOf()</strong> finds if searched element is in an array; returns its index or -1 if not found</li>
-<li><strong>lastIndexOf()</strong> the same as indexOf but starts from the end</li>
-
-<li><strong>reduce()</strong> reduces values of all array elements to a single value kept in accumulator, reducer function</li>
-<li><strong>reduceRight()</strong> the same as reduce() but starts from the end</li>
-<li><strong>reverse()</strong> reverses the order of all elements of an array</li>
-<li><strong>sort()</strong> sorts the elements of an array</li>
-
-<li><strong>shift()</strong>	removes the first element of an array; returns it</li>
-<li><strong>pop()</strong> removes the last element of an array, returns it</li>
-<li><strong>unshift()</strong> adds a new element at the beginning; returns lenght of an array</li>
-<li><strong>push()</strong> adds a new element at the end of an array, returns lenght of an array</li>
-
-<li><strong>slice()</strong>	selects a part of an array specified by beginning and end of splice or all array if end is not specified; returns the new array</li>
-<li><strong>splice()</strong> adds/removes elements from an array specified by beginning and end of splice, if beginning is negative it operates at the end of an array, end is speciied by number of elements to delete, if 0 it just place new element into an array</li>
-</ul>
+ <dl>
+<lh>Search, select</lh>
+<dt>filter()</dt>
+<dd>finds all elements matching query; makes new array from the result of callback function, if negative new array is empty</dd>
+<dt>map()</dt>
+<dd>calls a function for all elements of an array; makes new array from the result of callback function</dd>
+<dt>includes()</dt>
+<dd>finds if searched element is in an array; returns bolean</dd>
+<dt>find()</dt>
+<dd>finds the first element matching query; returns it or undefined if not found</dd>
+<dt>findIndex()</dt>
+<dd>finds the first element matching query; returns its index or -1 if not found</dd>
+<dt>indexOf()</dt>
+<dd>finds if searched element is in an array; returns its index or -1 if not found</dd>
+<dt>lastIndexOf()</dt>
+<dd>the same as indexOf but starts from the end</dd>
+<dt>some()</dt>
+<dd>find if any element matches request, returns bolean</dd>
+<dt>every()</dt>
+<dd>find if every elements match request, returns bolean</dd>
+<lh>Change</lh>
+<dt>reduce()</dt>
+<dd>reduces values of all array elements to a single value kept in accumulator, reducer function</dd>
+<dt>reduceRight()</dt>
+<dd>the same as reduce() but starts from the end</dd>
+<dt>reverse()</dt>
+<dd>reverses the order of all elements of an array</dd>
+<dt>sort()</dt>
+<dd>sorts the elements of an array</dd>
+<lh>Add, remove</lh>
+<dt>shift()</dt>
+<dd>removes the first element of an array; returns it</dd>
+<dt>pop()</dt>
+<dd>removes the last element of an array, returns it</dd>
+<dt>unshift()</dt>
+<dd>adds a new element at the beginning; returns lenght of an array</dd>
+<dt>push()</dt>
+<dd>adds a new element at the end of an array, returns lenght of an array</dd>
+<dt>slice()</dt>
+<dd>selects a part of an array specified by beginning and end of splice or all array if end is not specified; returns the new array</dd>
+<dt>splice()</dt>
+<dd>adds/removes elements from an array specified by beginning and end of splice, if beginning is negative it operates at the end of an array, end is speciied by number of elements to delete, if 0 it just place new element into an array</dd>
+</dl>
  </main>
 </body>
 
