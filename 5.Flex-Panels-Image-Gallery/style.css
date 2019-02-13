@@ -67,14 +67,14 @@
   }
 
   .panel1 {
-   background-image: url(img/map1.jpg);
+   background-image: url(https://picsum.photos/300/1000?image=1064);
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
   }
 
   .panel2 {
-   background-image: url(img/map2.jpg);
+   background-image: url(https://picsum.photos/300/1000?image=1048);
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
@@ -82,14 +82,14 @@
 
   .panel3 {
 
-   background-image: url(img/map3.jpg);
+   background-image: url(https://picsum.photos/300/1000?image=1033);
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
   }
 
   .panel4 {
-   background-image: url(img/map4.jpg);
+   background-image: url(https://picsum.photos/300/1000?image=1043);
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
