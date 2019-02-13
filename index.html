@@ -12,7 +12,7 @@
    min-height: 100vh;
    display: flex;
    background-color: #998;
-   color:#333;
+   color: #333;
   }
 
   main {
@@ -22,7 +22,7 @@
    max-width: 60rem;
    border: 5px dashed #cc4;
    padding: 1rem;
-   background-color: #7e7e6e   
+   background-color: #aeae9e
   }
 
   main h1 {
@@ -31,19 +31,36 @@
   }
 
   a {
-   color: #ff0;
+   color: #441;
   }
 
   a:hover {
    color: #333;
    background-color: #887;
   }
+
+  .list {
+   width: calc(100% - 33rem);
+   margin-right: 0;
+   overflow: hidden;
+   display: inline-block;
+  }
+
+  .methods {
+   float: right;
+   width: 30rem;
+   margin: 0;
+   background-color: #ddd;
+   border: 2px dotted #666;
+   border-radius: 10px;
+   padding: 1rem;
+  }
  </style>
 </head>
 
 <body>
  <main>
-  <h1>JavaScript30 list</h1>
+  <h1>#JavaScript30 list</h1>
   <p>This is page with a list of an exercises I've done a #JavaScript30 which is a first part of #100daysofcode
    challenge</p>
 
@@ -52,59 +69,160 @@
    <li><a href="https://tdudkowski.github.io/">back to my Github Page link</a></li>
    <li><a href="https://tdudkowski.github.io/100daysofcode.html">back to #100DaysOfCode</a></li>
   </ul>
+  <div class="list">
+   <h2>List</h2>
+   <ol>
+    <li><a href="1.JS-DrumKit/">JS-DrumKit</a></li>
+    <li><a href="2.CSS+JS-Clock/">CSS+JS-Clock</a></li>
+    <li><a href="3.Playing-with-CSS-Variables-and-JS">Playing-with-CSS-Variables-and-JS</a></li>
+    <li>Array Cardio Day 1 - instead of exercise list of few main array methods (on this page <a href="#methods">here</a></li>
+    <li><a href="5.Flex-Panels-Image-Gallery/">Flex-Panels-Image-Gallery</a></li>
+   </ol>
+  </div>
 
-  <h2>List</h2>
-  <ol>
-   <li><a href="1.JS-DrumKit/">1.JS-DrumKit</a></li>
-   <li><a href="2.CSS+JS-Clock/">2.CSS+JS-Clock</a></li>
-   <li><a href="3.Playing-with-CSS-Variables-and-JS">3.Playing-with-CSS-Variables-and-JS</a></li>
-   <li>Array Cardio Day 1 - instead of exercise list of few main array methods (see below)</li>
-  </ol>
-  
-  <h3>List of main array methods</h3>
- <dl>
-<lh>Search, select</lh>
-<dt>filter()</dt>
-<dd>finds all elements matching query; makes new array from the result of callback function, if negative new array is empty</dd>
-<dt>map()</dt>
-<dd>calls a function for all elements of an array; makes new array from the result of callback function</dd>
-<dt>includes()</dt>
-<dd>finds if searched element is in an array; returns bolean</dd>
-<dt>find()</dt>
-<dd>finds the first element matching query; returns it or undefined if not found</dd>
-<dt>findIndex()</dt>
-<dd>finds the first element matching query; returns its index or -1 if not found</dd>
-<dt>indexOf()</dt>
-<dd>finds if searched element is in an array; returns its index or -1 if not found</dd>
-<dt>lastIndexOf()</dt>
-<dd>the same as indexOf but starts from the end</dd>
-<dt>some()</dt>
-<dd>find if any element matches request, returns bolean</dd>
-<dt>every()</dt>
-<dd>find if every elements match request, returns bolean</dd>
-<lh>Change</lh>
-<dt>reduce()</dt>
-<dd>reduces values of all array elements to a single value kept in accumulator, reducer function</dd>
-<dt>reduceRight()</dt>
-<dd>the same as reduce() but starts from the end</dd>
-<dt>reverse()</dt>
-<dd>reverses the order of all elements of an array</dd>
-<dt>sort()</dt>
-<dd>sorts the elements of an array</dd>
-<lh>Add, remove</lh>
-<dt>shift()</dt>
-<dd>removes the first element of an array; returns it</dd>
-<dt>pop()</dt>
-<dd>removes the last element of an array, returns it</dd>
-<dt>unshift()</dt>
-<dd>adds a new element at the beginning; returns lenght of an array</dd>
-<dt>push()</dt>
-<dd>adds a new element at the end of an array, returns lenght of an array</dd>
-<dt>slice()</dt>
-<dd>selects a part of an array specified by beginning and end of splice or all array if end is not specified; returns the new array</dd>
-<dt>splice()</dt>
-<dd>adds/removes elements from an array specified by beginning and end of splice, if beginning is negative it operates at the end of an array, end is speciied by number of elements to delete, if 0 it just place new element into an array</dd>
-</dl>
+  <div class="methods" id="methods">
+   <h3>List of main array methods</h3>
+   <h4>Search, select</h4>
+   <dl>
+    <dt>filter()</dt>
+    <dd>
+     <ul>
+      <li>finds all elements matching query</li>
+      <li>makes new array from the result of callback function, if negative new array
+       is empty</li>
+     </ul>
+    </dd>
+    <dt>map()</dt>
+    <dd>
+     <ul>
+      <li>calls a function for all elements of an array</li>
+      <li>makes new array from the result of callback function</li>
+     </ul>
+    </dd>
+    <dt>includes()</dt>
+    <dd>
+     <ul>
+      <li>finds if searched element is in an array</li>
+      <li>returns bolean</li>
+     </ul>
+    </dd>
+    <dt>find()</dt>
+    <dd>
+     <ul>
+      <li>finds the first element matching query</li>
+      <li>returns it or undefined if not found</li>
+     </ul>
+    </dd>
+    <dt>findIndex()</dt>
+    <dd>
+     <ul>
+      <li>finds the first element matching query</li>
+      <li>returns its index or -1 if not found</li>
+     </ul>
+    </dd>
+    <dt>indexOf()</dt>
+    <dd>
+     <ul>
+      <li>finds if searched element is in an array</li>
+      <li>returns its index or -1 if not found</li>
+     </ul>
+    </dd>
+    <dt>lastIndexOf()</dt>
+    <dd>
+     <ul>
+      <li>the same as indexOf but starts from the end</li>
+     </ul>
+    </dd>
+    <dt>some()</dt>
+    <dd>
+     <ul>
+      <li>find if any element matches request</li>
+      <li>returns bolean</li>
+     </ul>
+    </dd>
+    <dt>every()</dt>
+    <dd>
+     <ul>
+      <li>find if every elements match request</li>
+      <li>returns bolean</li>
+     </ul>
+    </dd>
+   </dl>
+   <h4>Change</h4>
+   <dl>
+    <dt>reduce()</dt>
+    <dd>
+     <ul>
+      <li>reduces values of all array elements to a single value kept in accumulator</li>
+      <li>reducer function</li>
+     </ul>
+    </dd>
+    <dt>reduceRight()</dt>
+    <dd>
+     <ul>
+      <li>the same as reduce() but starts from the end</li>
+     </ul>
+    </dd>
+    <dt>reverse()</dt>
+    <dd>
+     <ul>
+      <li>reverses the order of all elements of an array</li>
+     </ul>
+    </dd>
+    <dt>sort()</dt>
+    <dd>
+     <ul>
+      <li>sorts the elements of an array</li>
+     </ul>
+    </dd>
+   </dl>
+   <h4>Add, remove</h4>
+   <dl>
+    <dt>shift()</dt>
+    <dd>
+     <ul>
+      <li>removes the first element of an array</li>
+      <li>returns it</li>
+     </ul>
+    </dd>
+    <dt>pop()</dt>
+    <dd>
+     <ul>
+      <li>removes the last element of an array</li>
+      <li>returns it</li>
+     </ul>
+    </dd>
+    <dt>unshift()</dt>
+    <dd>
+     <ul>
+      <li>adds a new element at the beginning</li>
+      <li>returns lenght of an array</li>
+     </ul>
+    </dd>
+    <dt>push()</dt>
+    <dd>
+     <ul>
+      <li>adds a new element at the end of an array</li>
+      <li>returns lenght of an array</li>
+     </ul>
+    </dd>
+    <dt>slice()</dt>
+    <dd>
+     <ul>
+      <li>selects a part of an array specified by beginning and end of splice or all array if end is not specified</li>
+      <li>returns the new array</li>
+     </ul>
+    </dd>
+    <dt>splice()</dt>
+    <dd>
+     <ul>
+      <li>adds/removes elements from an array specified by beginning and end of splice, if beginning is negative it
+       operates at the end of an array, end is speciied by number of elements to delete, if 0 it just place new element
+       into an array</li>
+     </ul>
+    </dd>
+   </dl>
+  </div>
  </main>
 </body>
 
