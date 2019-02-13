@@ -1,0 +1,96 @@
+  body {
+   display: flex;
+   min-height: 100vh;
+   margin: 0;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .panels {
+   flex: 1;
+   display: flex;
+  }
+
+  .panel {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   transition: all .6s;
+  }
+
+  .panel p {
+   flex: 1;
+   display: flex;
+   color: #eee;
+   font-size: 5rem;
+   justify-content: center;
+   align-items: center;
+   /* width: 100%; */
+   margin: 0;
+   text-align: center;
+   transition: all .6s;
+   /* border: 1px solid #f00; */
+  }
+
+  .panel p:nth-of-type(1) {
+   transform: translateY(-100%);
+  }
+
+  .panel.active p:nth-of-type(1) {
+   transform: translateY(0);
+  }
+
+  .panel:hover p:nth-of-type(1) {
+   transform: translateY(0);
+  }
+
+  .panel p:nth-of-type(3) {
+   transform: translateY(100%);
+  }
+
+  .panel.active p:nth-of-type(3) {
+   transform: translateY(0);
+  }
+
+  .panel:hover p:nth-of-type(3) {
+   transform: translateY(0);
+  }
+
+  .open {
+   flex: 3;
+   font-size: 8rem;
+  }
+
+  .panel:hover {
+   flex: 3;
+   font-size: 8rem;
+  }
+
+  .panel1 {
+   background-image: url(img/map1.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+  }
+
+  .panel2 {
+   background-image: url(img/map2.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+  }
+
+  .panel3 {
+
+   background-image: url(img/map3.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+  }
+
+  .panel4 {
+   background-image: url(img/map4.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+  }
