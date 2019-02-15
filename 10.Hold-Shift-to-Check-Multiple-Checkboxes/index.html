@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>10. Hold Shift to Check Multiple Checkboxes</title>
+ <style>
+  body>div {
+ width: 10rem;
+ background-color: #ddd;
+}
+
+div>div {
+ display: flex;
+}
+
+div>div input {
+ margin: auto 1rem;
+}
+
+div>div p {
+ flex: 1;
+}
+  </style>
+</head>
+
+<body>
+ <div>
+  <div><input type="checkbox">
+   <p>here</p>
+  </div>
+  <div><input type="checkbox">
+   <p>here</p>
+  </div>
+  <div><input type="checkbox">
+   <p>here</p>
+  </div>
+  <div><input type="checkbox">
+   <p>here</p>
+  </div>
+  <div><input type="checkbox">
+   <p>here</p>
+  </div>
+  <div><input type="checkbox">
+   <p>here</p>
+  </div>
+  <div><input type="checkbox">
+   <p>here</p>
+  </div>
+  <div><input type="checkbox">
+   <p>here</p>
+  </div>
+  <div><input type="checkbox">
+   <p>here</p>
+  </div>
+ </div>
+ <script>
+  const checkboxes = document.querySelectorAll('div input');
+
+
+  function checkAllBetween(e) {
+   // console.log(this);
+   let inbetween = false;
+   if (e.shiftKey && this.checked) {
+    checkboxes.forEach(checkbox => {
+     console.log(checkbox);
+     if (checkbox === this || checkbox === lastchecked) {
+      inbetween = !inbetween;
+      console.log('here!');
+     }
+     if (inbetween) {
+      checkbox.checked = true;
+     }
+    })
+   }
+   lastchecked = this;
+  }
+
+  checkboxes.forEach(checkbox => checkbox.addEventListener('click', checkAllBetween));
+ </script>
+</body>
+
+
+</html>
