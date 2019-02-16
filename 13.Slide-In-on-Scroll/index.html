@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Slide In on Scroll</title>
+ <style>
+  body {
+   margin: 0;
+  }
+
+  main {
+   margin: 0 auto;
+   max-width: 600px;
+   background-color: #ddd;
+   overflow: hidden;
+  }
+
+  p {
+   margin: .5rem;
+  }
+
+  img {
+   /* transition: translate 2s; */
+   transition-duration: 2s;
+  }
+
+  img.left {
+   float: left;
+   margin: 0 20px;
+
+  }
+
+  img.right {
+   float: right;
+   margin: 0 20px;
+
+  }
+
+  img.right.hidden {
+   transform: translateX(calc(100% + 20px)) scale(.65);
+  }
+
+  img.right.shown {
+   transform: translateX(0%) scale(1);
+  }
+
+  img.left.hidden {
+   transform: translateX(calc(-100% - 20px)) scale(.65);
+  }
+
+  img.left.shown {
+   transform: translateX(0%) scale(1);
+  }
+ </style>
+</head>
+
+<body>
+ <main>
+  <h1>Bouncing</h1>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+  <img src="img.jpg" alt="" height="200" srcset="" class="left">
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+  <img src="img.jpg" alt="" height="200" srcset="" class="right">
+
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+  <img src="img.jpg" alt="" height="200" srcset="" class="left">
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+  <img src="img.jpg" alt="" height="200" srcset="" class="right">
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ipsa nihil aliquam, qui molestias pariatur
+   molestiae dolorum aut iure. Perspiciatis vitae excepturi explicabo pariatur veniam culpa error voluptates sapiente
+   ad!</p>
+ </main>
+
+ <script>
+  const debounce = function (func, wait = 20, immediate = true) {
+   let timeout;
+   return function () {
+    let context = this,
+     args = arguments;
+    let later = function () {
+     timeout = null;
+     if (!immediate) func.apply(context, args);
+    }
+    let callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+   }
+  }
+
+  const imgs = document.querySelectorAll('img');
+  const init = () => {
+   imgs.forEach(img => img.classList.add('hidden'))
+  }
+
+  const checkScroll = (e) => {
+   imgs.forEach(img => {
+    // half height of img
+    const measureTop = (window.scrollY + window.innerHeight) - img.height / 2;
+    // bottom of img
+    const measureBottom = img.offsetTop + img.height;
+    console.log(measureTop, measureBottom);
+
+    const halfShown = measureTop > img.offsetTop;
+    const bottomNotPassed = window.scrollY < measureBottom;
+
+    if (halfShown && bottomNotPassed) {
+     img.classList.remove('hidden')
+     img.classList.add('shown')
+    } else {
+     img.classList.add('hidden')
+     img.classList.remove('shown')
+    }
+   });
+  }
+  
+  init();
+  window.addEventListener('scroll', debounce(checkScroll));
+ </script>
+</body>
+
+</html>
