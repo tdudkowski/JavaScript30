@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Key Sequence Detection (KONAMI CODE)</title>
+</head>
+
+<body>
+<p>type: password</p>
+ <script>
+  const keyPressed = [];
+  passCode = 'password'
+
+  const getSequence = (e) => {
+   console.log(e.key, e.keyCode, keyPressed);
+   keyPressed.push(e.key)
+   // if (keyPressed.length > passCode.length) {
+   //  keyPressed.shift();
+   // }
+   keyPressed.splice(-passCode.length - 1, keyPressed.length - passCode.length);
+   if (keyPressed.join('').includes(passCode)) {
+    console.log('elo!');
+    // cornify_add();
+    alert('OK');
+   }
+  }
+  
+  window.addEventListener('keyup', getSequence);
+ </script>
+</body>
+
+</html>
