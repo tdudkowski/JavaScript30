@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>15. LocalStorage and Event Delegation</title>
+  <style>
+    body {
+ margin: 0;
+ position: relative;
+ min-height: 100vh;
+ background-image: url(img/leg4.jpg);
+ background-size: cover;
+}
+
+body div {
+ position: absolute;
+ width: 20rem;
+ min-height: 15rem;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%, -50%);
+ border: 2px solid #aaa;
+ background-color: #eee;
+ padding: 1rem;
+}
+  </style>
+</head>
+
+<body>
+  <div>
+    <form class="add">
+      <input type="text" name="item" placeholder="item name" required>
+      <input type="submit" value="+ Add Item">
+    </form>
+    <ul>
+      <li>Add Item</li>
+    </ul>
+  </div>
+  <script>
+    const form = document.querySelector('form');
+    const itemsList = document.querySelector('ul')
+    const items = JSON.parse(localStorage.getItem('items')) || [];
+
+    const makeList = function (plates = [], platesList) {
+      platesList.innerHTML = plates.map((plate, i) => {
+        return `
+   <li>
+   <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked':''}/>
+   <label for="items${i}">${plate.text}</label>
+   </li>
+   `;
+      }).join('');
+    }
+    // const makeList = function () {
+    //  itemsList.innerHTML = '';
+    //  items.forEach(item => {
+    //   const liItem = document.createElement('li');
+    //   liItem.textContent = item.text;
+    //   itemsList.appendChild(liItem)
+    //  })
+    // }
+
+    const addItem = function (e) {
+      e.preventDefault();
+      const text = this.querySelector('[name=item]').value;
+      const item = {
+        text,
+        done: false
+      }
+      items.push(item);
+      makeList(items, itemsList);
+      localStorage.setItem('items', JSON.stringify(items));
+      this.reset();
+    }
+
+    function toggled(e) {
+      if (!e.target.matches('input')) return;
+      // console.log(e, e.target);
+      const el = e.target;
+      const index = el.dataset.index;
+      items[index].done = !items[index].done;
+      localStorage.setItem('items', JSON.stringify(items));
+      makeList(items, itemsList);
+    }
+
+    makeList(items, itemsList);
+    form.addEventListener('submit', addItem);
+    itemsList.addEventListener('click', toggled);
+    // button checkall, uncheckall, clear
+  </script>
+</body>
+
+</html>
