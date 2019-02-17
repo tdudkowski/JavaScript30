@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>11. Custom HTML5 Video Player</title>
+ <style>
+  .progress{border:1px solid #999; padding: 0;background-color:rgba(100,100,100,.5);}
+  .progress__filled{background-color: #f00;height:1rem; flex-basis:0;}
+ </style>
+</head>
+
+<body>
+ <div class="player">
+  <video class="player__video viewer" src="Coffee at the Morning.mp4"></video>
+  <div class="player__controls">
+   <div class="progress">
+    <div class="progress__filled"></div>
+   </div>
+   <button class="player__button toggle" title="Toggle Play">&gt;</button>
+   <input type="range" name="volume" class="player__slider" min=0 max="1" step='0.05' value='1'>
+   <input type="range" name='playbackRate' class="player__slider" min='0.2' max='2' step='0.1' value='1'>
+   <button data-skip='-10' class="player__button">10 s</button>s
+   <button data-skip='25' class="player__button">25 s</button>
+  </div>
+ </div>
+
+ <script>
+  const player = document.querySelector('.player');
+  const video = document.querySelector('.viewer');
+  const progress = document.querySelector('.progress');
+  const progressBar = document.querySelector('.progress__filled');
+  const toggle = document.querySelector('.toggle');
+  const skipButtons = document.querySelectorAll('[data-skip]');
+  const ranges = document.querySelectorAll('.player__slider');
+
+  const togglePlay = () => {
+   // 1.
+   // if (video.paused) {
+   //  video.play();
+   // } else {
+   //  video.pause()
+   // }
+   // 2.
+   // const method = video.paused ? 'play' : 'pause';
+   // video[method]();
+   // 3.
+   video[video.paused ? 'play' : 'pause']();
+  }
+
+  const updateButton = function () {
+   // const icon = video.paused ? '>' : '| |';
+   const icon = this.paused ? '>' : '| |';
+   toggle.textContent = icon;
+
+  }
+
+  const skip = function () {
+   // console.log(this.dataset.skip);
+   video.currentTime += parseFloat(this.dataset.skip);
+  }
+
+  const rangeUpdate = function () {
+   // console.log(this.value);
+   video[this.name] = this.value;
+   // video.currentTime += parseFloat(this.dataset.skip);
+  }
+
+  const progressUpdate = function () {
+   const percent = Math.floor((video.currentTime / video.duration) * 100);
+   progressBar.style.width = `${percent}%` // percent + '%'; //`${percent}%`; // flexBasis didnt work
+   console.log(percent + '%');
+  }
+
+  const scrub = function (e) {
+   const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+   video.currentTime = scrubTime;
+   console.log(scrubTime);
+  }
+
+  video.addEventListener('click', togglePlay);
+  toggle.addEventListener('click', togglePlay);
+  video.addEventListener('play', updateButton);
+  video.addEventListener('pause', updateButton);
+  video.addEventListener('timeupdate', progressUpdate); // progress
+
+  skipButtons.forEach(btn => btn.addEventListener('click', skip));
+  ranges.forEach(range => range.addEventListener('change', rangeUpdate));
+  ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate));
+
+  let mousedown = false;
+  progress.addEventListener('click', scrub);
+  progress.addEventListener('mousemove', (e) => mousedown && scrub(e)); // trick!
+
+  progress.addEventListener('mousedown', () => mousedown = true);
+  progress.addEventListener('mouseup', () =>
+   mousedown = false);
+  //add single frames, fullscreen
+ </script>
+</body>
+
+</html>
