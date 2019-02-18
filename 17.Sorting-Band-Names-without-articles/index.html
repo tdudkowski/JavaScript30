@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>17. Sorting Band Names without articles</title>
+</head>
+
+<body>
+ <ul></ul>
+ <script>
+  const bandsArray = ['The Crypton and Rhytm', 'Blues and a Blur', 'An Tronomicon', 'A Lighing Rode', 'Thesturbinator',
+   'Dormant Aley',
+  ]
+
+  function strip(bandName) {
+   return bandName.replace(/^(a |an |the )/i, '').trim();
+  }
+
+  // const sortedBands = bandsArray.sort(function (a, b) {
+  //  if (strip(a) > strip(b)) {
+  //   return 1;
+  //  } else {
+  //   return -1;
+  //  }
+  // });
+  // the same
+  const sortedBands = bandsArray.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+
+  document.querySelector('ul').innerHTML = sortedBands.map(band => `<li>${band}</li>`).join('');
+
+  console.log(sortedBands);
+ </script>
+</body>
+
+</html>
