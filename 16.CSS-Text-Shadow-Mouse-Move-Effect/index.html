@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>16. CSS Text Shadow Mouse Move Effect</title>
+ <style>
+  body {
+   position: relative;
+   margin: 0;
+   min-height: 100vh;
+  }
+
+  div {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   width: 600px;
+   height: 600px;
+   background-color: #aa9;
+  }
+
+  h1 {
+   font-size: 3rem;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+  }
+ </style>
+</head>
+
+<body>
+ <div>
+  <h1>HERO</h1>
+ </div>
+
+ <script>
+  const hero = document.querySelector('div');
+  const h1 = document.querySelector('h1');
+
+  const trackIt = function (e) {
+   // console.log(e);
+   // const width = hero.offsetWidth;
+   // const height = hero.offsetHeight;
+   // the same
+   const {
+    offsetWidth: width,
+    offsetHeight: height
+   } = hero;
+   let {
+    offsetX: x,
+    offsetY: y
+   } = e;
+   let walk = 500;
+
+   if (this !== e.target) {
+    x = x + e.target.offsetLeft;
+    y = y + e.target.offsetTop;
+   }
+   const xWalk = Math.round((x / width * walk) - (walk / 2));
+   const yWalk = Math.round((y / width * walk) - (walk / 2));
+   console.log(xWalk, yWalk);
+
+   h1.style.textShadow =
+    `
+   ${xWalk}px ${yWalk}px 0 rgba(255,0,0,0.7),
+   ${xWalk*-1}px ${yWalk}px 0 rgba(0,255,255,0.7),
+   ${yWalk}px ${xWalk *-1}px 0 rgba(0,255,0,0.7),
+   ${yWalk*-1}px ${xWalk}px 0 rgba(0,0,255,0.7)`;
+  }
+
+  hero.addEventListener('mousemove', trackIt);
+ </script>
+</body>
+
+</html>
