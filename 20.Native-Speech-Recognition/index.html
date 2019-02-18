@@ -11,8 +11,9 @@
 <body>
  <div class="words" contenteditable></div>
  <script>
-  window.speechRecognition = window.speechRecognition || window.webkitSpeechRecognition;
-  const recognition = new speechRecognition();
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+  recognition.interimResults = true;
   recognition.interimResults = true;
   recognition.lang = 'pl-PL';
 
