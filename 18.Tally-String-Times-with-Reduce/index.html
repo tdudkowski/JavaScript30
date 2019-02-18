@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>18. Tally String Times with Reduce</title>
+</head>
+
+<body>
+
+ <ul>
+  <li data-time="09:32">s</li>
+  <li data-time="3:17">s</li>
+  <li data-time="21:37">s</li>
+ </ul>
+ <script>
+  const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+  const seconds = timeNodes.map(node => node.dataset.time).map(timeCode => {
+   const [mins, secs] = timeCode.split(':').map(parseFloat); // trick
+   return (mins * 60) + secs;
+  }).reduce((total, vidSeconds) => total + vidSeconds);
+
+  let secondsLeft = seconds;
+
+  const hours = Math.floor(secondsLeft / 3600);
+  secondsLeft = secondsLeft % 3600;
+
+  const mins = Math.floor(secondsLeft / 60);
+  secondsLeft = secondsLeft % 60;
+
+  console.log(hours, mins, secondsLeft);
+
+  // change it to accept also hours in time
+ </script>
+</body>
+
+</html>
