@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>24. Sticky Nav</title>
+  <style>
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    article {
+      transform: scale(0.97);
+    }
+
+    .fixed article {
+      transform: scale(1);
+      background-color: #eee;
+    }
+
+    ul {
+      display: flex;
+      background-color: #ddd;
+      list-style-type: none;
+    }
+
+    ul li {
+      flex: 1;
+    }
+
+    ul li a {
+      /* display: block; */
+      padding: .3rem 2rem;
+      text-align: center;
+      background-color: rgba(200, 200, 200, .4);
+    }
+
+    nav {
+      position: relative;
+      top: 0;
+      z-index: 30;
+    }
+
+    .logo {
+      max-width: 0;
+      overflow: hidden;
+      transition: all 1s;
+    }
+
+    .fixed .logo {
+      max-width: 100px;
+    }
+
+    .fixed nav {
+      position: fixed;
+    }
+  </style>
+</head>
+
+<body>
+  <p><a href="../">Link to list of JS30 exercises</a></p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+    optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+    optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+    optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+  <main>
+    <nav>
+      <ul>
+        <li class="logo"><a href="#">LOGO</a></li>
+        <li><a href="#">pospospos</a></li>
+        <li><a href="#">pospospospospospos</a></li>
+        <li><a href="#">pospospospos</a></li>
+      </ul>
+    </nav>
+    <article>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur
+        natus optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur
+        natus optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur
+        natus optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur
+        natus optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur
+        natus optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur
+        natus optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur
+        natus optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+        optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+    </article>
+  </main>
+
+
+  <script>
+    const nav = document.querySelector('nav');
+    const topOfNav = nav.offsetTop;
+    const fixNav = () => {
+      if (window.scrollY >= topOfNav) {
+        document.body.style.paddingTop = nav.offsetHeight;
+        document.body.classList.add('fixed');
+      } else {
+        document.body.classList.remove('fixed');
+      }
+    }
+    window.addEventListener('scroll', fixNav);
+  </script>
+</body>
+
+</html>
