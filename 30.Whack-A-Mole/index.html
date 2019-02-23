@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>30. Whack A Mole</title>
+ <style>
+  body {
+   margin: 0;
+  }
+
+  body div {
+   margin-top: 10rem;
+   display: flex;
+   flex-wrap: wrap;
+  }
+
+  .hole {
+   flex: 1;
+   flex-basis: 25%;
+   height: 3rem;
+   margin: 2rem;
+   margin-top: 10rem;
+   background-color: #eed;
+   border: 3px solid #dde;
+   overflow-y: hidden;
+   transition: .1s;
+  }
+
+  .active {
+   overflow-y: visible
+  }
+
+  .mole {
+   margin-top: -5rem;
+   width: 100%;
+
+   border: 2px solid #aaa;
+   background-color: #ddc;
+  }
+ </style>
+</head>
+
+<body>
+ <p><a href="../">Link to list of JS30 exercises</a></p>
+ <button>[ START ]</button>
+ <span>0</span>
+ <div>
+  <div class="hole hole1">
+   <div class="mole"></div>
+  </div>
+  <div class="hole hole2">
+   <div class="mole"></div>
+  </div>
+  <div class="hole hole3">
+   <div class="mole"></div>
+  </div>
+  <div class="hole hole4">
+   <div class="mole"></div>
+  </div>
+  <div class="hole hole5">
+   <div class="mole"></div>
+  </div>
+  <div class="hole hole6">
+   <div class="mole"></div>
+  </div>
+ </div>
+
+ <script>
+  const holes = document.querySelectorAll('.hole');
+  const moles = document.querySelectorAll('.mole');
+  const scoreBoard = document.querySelector('span');
+  const btn = document.querySelector('button');
+  let lastHole;
+  let stop = false;
+  let score = 0;
+
+  function randomTime(min, max) {
+   return Math.round(Math.random() * (max - min) + min);
+  }
+
+  function randomHole(holes) {
+   const idx = Math.floor(Math.random() * holes.length);
+   const hole = holes[idx];
+   if (hole === lastHole) {
+    console.log('nope, try again');
+    return randomHole(holes);
+   }
+   lastHole = hole;
+   return hole;
+  }
+
+  function peep() {
+   const time = randomTime(200, 1000);
+   const hole = randomHole(holes);
+   console.log(time, hole);
+   hole.classList.add('active');
+   setTimeout(() => {
+    hole.classList.remove('active')
+    if (!stop) peep();
+   }, time)
+  }
+
+  function startGame() {
+   scoreBoard.textContent = 0;
+   stop = false;
+   peep();
+   setTimeout(() => stop = true, 10000);
+  }
+  btn.addEventListener('click', startGame);
+
+  const boom = function (e) {
+   if (!e.isTrusted) return;
+   this.classList.remove('active');
+   score++
+   scoreBoard.textContent = score;
+  }
+
+  moles.forEach(mole => mole.addEventListener('click', boom));
+  // all time score board localStorage; levels
+ </script>
+</body>
+
+</html>
