@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>22 Follow Along Links</title>
+  <style>
+    ul {
+      display: flex;
+      background-color: #ddd;
+      list-style-type: none;
+    }
+
+    ul li {
+      flex: 1;
+    }
+
+    ul li a {
+      /* display: block; */
+      padding: .3rem 2rem;
+      text-align: center;
+      background-color: rgba(200, 200, 200, .4);
+    }
+
+    .highlight {
+      background-color: #f00;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      transition: all .1s;
+      z-index: -1;
+      box-shadow: 0 0 3px 4px #ff0;
+    }
+  </style>
+</head>
+
+<body>
+  <p><a href="../">Link to list of JS30 exercises</a></p>
+  <nav>
+    <ul>
+      <li><a href="#">pos</a></li>
+      <li><a href="#">pospospos</a></li>
+      <li><a href="#">pospospospospospos</a></li>
+      <li><a href="#">pospospospos</a></li>
+    </ul>
+  </nav>
+  <main>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem ipsum
+      dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem ipsum
+      dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem ipsum
+      dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem ipsum
+      dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta. Lorem ipsum
+      dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Vero veniam praesentium nemo facilis consequatur natus
+      optio minus quidem at ea, in delectus aliquam! Animi quidem minus incidunt sit provident soluta.</p>
+
+  </main>
+
+  <script>
+    const triggers = document.querySelectorAll('a');
+    const highlight = document.createElement('span');
+    highlight.classList.add('highlight');
+    document.body.append(highlight);
+
+    const addHighlightLink = function () {
+      const linkCoords = this.getBoundingClientRect();
+      const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+      };
+      console.log(coords);
+      highlight.style.width = `${coords.width}px`;
+      highlight.style.height = `${coords.height}px`;
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+    }
+
+    triggers.forEach(trigger => trigger.addEventListener('mouseenter', addHighlightLink));
+  </script>
+</body>
+
+</html>
