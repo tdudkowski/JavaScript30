@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>29. Countdown Clock</title>
+ <style>
+  body {
+   position: relative;
+   margin: 0;
+   min-height: 100vh;
+  }
+
+  .clock {
+   position: absolute;
+   background-color: #776;
+   /* width: 9rem; */
+   left: 50%;
+   top: 50%;
+   /* transform: translate(-50%, -50%); */
+   padding: .5rem 1rem;
+   font-size: 3rem;
+   font-family: monospace;
+   line-height: 4rem;
+   border-radius: 10px;
+   color: #eee;
+  }
+ </style>
+</head>
+
+<body>
+ <p><a href="../">Link to list of JS30 exercises</a></p>
+ <div class="endtime"></div>
+ <div class="timer">
+  <button data-time="20">20 s</button>
+  <button data-time="300">Work 5</button>
+  <button data-time="900">Quick 15</button>
+  <button data-time="1200">Snack 20</button>
+  <button data-time="3600">Lunch Break</button>
+  <form action="" name="customform" id="custom"><input type="text" name="minutes" placeholder="enter minutes"></form>
+ </div>
+ <div class="clock"></div>
+</body>
+<script>
+ const clock = document.querySelector('.clock');
+ const endtime = document.querySelector('.endtime');
+ const btns = document.querySelectorAll('[data-time]')
+ let countdown;
+
+ function displayTimeLeft(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainedSeconds = seconds % 60;
+  console.log(seconds);
+  const display = `${minutes}:${remainedSeconds<10?'0'+remainedSeconds:remainedSeconds}`;
+  clock.textContent = display;
+  document.title = display;
+ }
+
+ function timer(seconds) {
+  // clear all other timers
+  clearInterval(countdown);
+  const now = Date.now();
+  const then = now + seconds * 1000;
+
+  displayEndTime(then);
+
+  setInterval(() => {
+   const secondsLeft = Math.round((then - Date.now()) / 1000);
+   // when to stop it
+   if (secondsLeft < 0) {
+    clearInterval(countdown);
+    return;
+   }
+   // display
+   displayTimeLeft(secondsLeft);
+  }, 1000)
+ }
+
+ function displayEndTime(timestamp) {
+  const end = new Date(timestamp);
+  const hour = end.getHours();
+  const minutes = end.getMinutes();
+  endtime.textContent = `end is at ${hour>12?hour-12:hour}:${minutes<10?'0':''}${minutes}`;
+ }
+
+ // function timer(seconds) {
+ //  setInterval(function () {
+ //   seconds++;
+ //  }, 1000)
+ //  clock.textContent = seconds;
+ // }
+ timer(311);
+
+ const startTimer = function () {
+  const seconds = parseInt(this.dataset.time);
+  timer(seconds);
+ }
+
+ btns.forEach(btn => btn.addEventListener('click', startTimer));
+ document.customform.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const minutes = this.minutes.value;
+  timer(minutes * 60);
+  this.reset();
+ })
+</script>
+
+</html>
