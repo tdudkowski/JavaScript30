@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>27. Click And Drag To Scroll</title>
+ <style>
+  body {
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0;
+  }
+
+  .items {
+   position: relative;
+   height: 80vh;
+   width: 100%;
+   padding: 10vh;
+   overflow-x: scroll;
+   /* perspective: 500px; */
+   overflow-y: hidden;
+   white-space: nowrap;
+   /* transform: scale(.99); */
+  }
+
+  .item {
+   display: inline-flex;
+   width: 25vw;
+   height: 80vh;
+   /* align-items: center; */
+   background-color: #ddc;
+   color: #dfdfcf;
+   text-shadow: 0 0 3px #bba;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 10rem;
+   line-height: 80vh;
+   padding: 0 6rem;
+   box-sizing: border-box;
+  }
+
+  .active {
+   transform: scale(1);
+  }
+ </style>
+</head>
+
+<body>
+ <p><a href="../">Link to list of JS30 exercises</a></p>
+ <div class="items">
+  <div class="item">01</div>
+  <div class="item">02</div>
+  <div class="item">03</div>
+  <div class="item">04</div>
+  <div class="item">05</div>
+  <div class="item">06</div>
+  <div class="item">07</div>
+  <div class="item">08</div>
+  <div class="item">09</div>
+  <div class="item">10</div>
+  <div class="item">11</div>
+  <div class="item">12</div>
+  <div class="item">13</div>
+  <div class="item">14</div>
+  <div class="item">15</div>
+  <div class="item">16</div>
+  <div class="item">17</div>
+  <div class="item">18</div>
+  <div class="item">19</div>
+  <div class="item">20</div>
+ </div>
+ <script>
+  const slider = document.querySelector('.items');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+   isDown = true;
+   slider.classList.add('active');
+   startX = e.pageX - slider.offsetLeft;
+   scrollLeft = slider.offsetLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+   isDown = false;
+   slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mouseup', () => {
+   isDown = false;
+   slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+   if (!isDown) return;
+   e.preventDefault();
+   const x = e.pageX - slider.offsetLeft;
+   const walk = (x - startX) * 13;
+   console.log({
+    x,
+    startX,
+    walk
+   }) // trick
+   slider.scrollLeft = scrollLeft - walk;
+  });
+
+  // todo drag&drop
+ </script>
+</body>
+
+</html>
