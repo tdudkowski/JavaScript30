@@ -43,198 +43,20 @@
     <li><a href="18.Tally-String-Times-with-Reduce/">Tally String Times with Reduce</a></li>
     <li><a href="19.Unreal-Webcam-Fun/">Unreal Webcam Fun</a></li>
     <li><a href="20.Native-Speech-Recognition/">Native Speech Recognition</a></li>
-<!--     <li><a href="#">21. Geolocation based Speedometer and Compass</a></li>
-    <li><a href="#">22. Follow Along Links</a></li>
-    <li><a href="#">23. Speech Synthesis</a></li>
-    <li><a href="#">24. Sticky Nav</a></li>
-    <li><a href="#">25. Event Capture, Propagation, Bubbling and Once</a></li>
-    <li><a href="#">26. Stripe Follow Along Dropdown</a></li>
-    <li><a href="#">27. Click and Drag to Scroll</a></li>
-    <li><a href="#">28. Video Speed Controller UI</a></li>
-    <li><a href="#">29. Countdown Clock</a></li>
-    <li><a href="#">30. Whack A Mole Game</a></li>     -->
+    <li><a href="21.Geolocation-based-Speedometer-and-Compass/">Geolocation based Speedometer and Compass</a></li>
+    <li><a href="22.Follow-Along-Links/">Follow Along Links</a></li>
+    <li><a href="23.Speech-Synthesis/">Speech Synthesis</a></li>
+    <li><a href="24.Sticky-Nav/">Sticky Nav</a></li>
+    <li>Event Capture, Propagation, Bubbling and Once (presentation)</li>
+    <li><a href="26.Stripe-Follow-Along-Dropdown/">Stripe Follow Along Dropdown</a></li>
+    <li><a href="27.Click-and-Drag-to-Scroll/">Click and Drag to Scroll</a></li>
+    <li><a href="28.Video-Speed-Controller-UI/">Video Speed Controller UI</a></li>
+    <li><a href="29.Countdown-Clock/">Countdown Clock</a></li>
+    <li><a href="30.Whack-A-Mole-Game/">Whack A Mole Game</a></li>    
    </ol>
   </div>
 
-  <div class="methods" id="methods">
-   <h3>Object methods</h3>
-   <dl>
-     <dt>delete()</dt>
-    <dd>
-     <ul>
-      <li>removes the property of an object</li>
-      <li>returns bolean</li>
-     </ul>
-    </dd>
-      <dl>
-    <dt>assign()</dt>
-    <dd>
-     <ul>
-      <li>makes copy of values from one or more source objects to a target object</li>
-      <li>returns target object</li>
-     </ul>
-    </dd>
-   </dl>
-   <h3>List of main array methods</h3>
-   <h4>Search, select</h4>
-   <dl>
-    <dt>filter()</dt>
-    <dd>
-     <ul>
-      <li>finds all elements matching query</li>
-      <li>makes new array from the result of callback function, if negative new array
-       is empty</li>
-     </ul>
-    </dd>
-    <dt>map()</dt>
-    <dd>
-     <ul>
-      <li>calls a function for all elements of an array</li>
-      <li>makes new array from the result of callback function</li>
-     </ul>
-    </dd>
-    <dt>includes()</dt>
-    <dd>
-     <ul>
-      <li>finds if searched element is in an array</li>
-      <li>returns bolean</li>
-     </ul>
-    </dd>
-    <dt>find()</dt>
-    <dd>
-     <ul>
-      <li>finds the first element matching query</li>
-      <li>returns it or undefined if not found</li>
-     </ul>
-    </dd>
-    <dt>findIndex()</dt>
-    <dd>
-     <ul>
-      <li>finds the first element matching query</li>
-      <li>returns its index or -1 if not found</li>
-     </ul>
-    </dd>
-    <dt>indexOf()</dt>
-    <dd>
-     <ul>
-      <li>finds if searched element is in an array</li>
-      <li>returns its index or -1 if not found</li>
-     </ul>
-    </dd>
-    <dt>lastIndexOf()</dt>
-    <dd>
-     <ul>
-      <li>the same as indexOf but starts from the end</li>
-     </ul>
-    </dd>
-    <dt>some()</dt>
-    <dd>
-     <ul>
-      <li>find if any element matches request</li>
-      <li>returns bolean</li>
-     </ul>
-    </dd>
-    <dt>every()</dt>
-    <dd>
-     <ul>
-      <li>find if every elements match request</li>
-      <li>returns bolean</li>
-     </ul>
-    </dd>
-   </dl>
-   <h4>Change</h4>
-   <dl>
-    <dt>join()</dt>
-    <dd>
-     <ul>
-      <li>joins the elements of an array into a string; argument is a separator</li>
-      <li>returns string</li>
-     </ul>
-    </dd>
-    <dt>reduce()</dt>
-    <dd>
-     <ul>
-      <li>reduces values of all array elements to a single value kept in accumulator</li>
-      <li>reducer function</li>
-     </ul>
-    </dd>
-    <dt>reduceRight()</dt>
-    <dd>
-     <ul>
-      <li>the same as reduce() but starts from the end</li>
-     </ul>
-    </dd>
-    <dt>reverse()</dt>
-    <dd>
-     <ul>
-      <li>reverses the order of all elements of an array</li>
-     </ul>
-    </dd>
-    <dt>sort()</dt>
-    <dd>
-     <ul>
-      <li>sorts the elements of an array</li>
-     </ul>
-    </dd>
-   </dl>
-   <h4>Add, remove</h4>
-   <dl>   
-    <dt>shift()</dt>
-    <dd>
-     <ul>
-      <li>removes the first element of an array</li>
-      <li>returns it</li>
-     </ul>
-    </dd>
-    <dt>pop()</dt>
-    <dd>
-     <ul>
-      <li>removes the last element of an array</li>
-      <li>returns it</li>
-     </ul>
-    </dd>
-    <dt>unshift()</dt>
-    <dd>
-     <ul>
-      <li>adds a new element at the beginning</li>
-      <li>returns lenght of an array</li>
-     </ul>
-    </dd>
-    <dt>push()</dt>
-    <dd>
-     <ul>
-      <li>adds a new element at the end of an array</li>
-      <li>returns lenght of an array</li>
-     </ul>
-    </dd>
-    <dt>slice()</dt>
-    <dd>
-     <ul>
-      <li>selects a part of an array specified by beginning and end of splice or all array if end is not specified</li>
-      <li>returns the new array</li>
-     </ul>
-    </dd>
-    <dt>splice()</dt>
-    <dd>
-     <ul>
-      <li>adds/removes elements from an array specified by beginning and end of splice, if beginning is negative it
-       operates at the end of an array, end is speciied by number of elements to delete, if 0 it just place new element
-       into an array</li>
-     </ul>
-    </dd>
-   </dl>
-    <h3>String methods</h3>
-   <dl>
-    <dt>trim()</dt>
-    <dd>
-     <ul>
-      <li>removes whitespace from both sides of a string</li>
-      <li>returns new string; does not change the original string</li>
-     </ul>
-    </dd>
-   </dl>
-  </div>
- </main>
+</main>
 </body>
 
 </html>
