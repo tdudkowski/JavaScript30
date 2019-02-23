@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>28. Video Speed Controller UI</title>
+ <style>
+  body {
+   display: flex;
+   margin: 0;
+   background-color: #aaa;
+  }
+
+  .wrapper {
+   display: flex;
+  }
+
+  .speedbar {
+   flex: 1;
+   display: flex;
+   align-items: flex-start;
+   margin: 0 30px;
+   width: 3rem;
+   border: 1px solid #333;
+   background-color: #887;
+   overflow: hidden;
+  }
+
+  .speedbar-controller {
+   width: 100%;
+   background-color: #ddc;
+   display: flex;
+   flex: 1;
+   align-items: center;
+   justify-content: center;
+   padding: 2px;
+   color: #000;
+   font-size: 1.2rem;
+   font-family: sans-serif;
+   height: 15%;
+  }
+ </style>
+
+</head>
+
+<body>
+ <p><a href="../">Link to list of JS30 exercises</a></p>
+ <div class="wrapper">
+  <video src="" loop controls></video>
+
+  <div class="speedbar">
+   <div class="speedbar-controller"></div>
+  </div>
+ </div>
+
+ <script>
+  const speedbar = document.querySelector('.speedbar');
+  const bar = document.querySelector('.speedbar-controller');
+  const video = document.querySelector('video');
+
+  const tempoController = function (e) {
+   const y = e.pageY - this.offsetTop;
+   const percent = y / this.offsetHeight;
+
+   const min = 0.4;
+   const max = 4;
+   bar.style.height = Math.round(percent * 100) + '%';
+   const playbackrate = (percent * (max - min) + min).toFixed(1);
+   bar.textContent = playbackrate + 'x';
+   console.log(playbackrate);
+   video.playbackRate = playbackrate;
+  }
+
+  speedbar.addEventListener('mousemove', tempoController);
+ </script>
+</body>
+
+</html>
