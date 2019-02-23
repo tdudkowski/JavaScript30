@@ -5,6 +5,14 @@
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
+  .link {
+   position: fixed;
+   left:0;
+   top:0;
+   z-index: 100;
+   background-color: rgba(200, 200, 200, .6);
+  }
+
   .panels {
    flex: 1;
    display: flex;
