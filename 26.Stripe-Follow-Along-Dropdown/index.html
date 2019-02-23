@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>26. Stripe Follow Along Dropdown</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffe;
+    }
+
+    nav {
+      position: relative;
+      perspective: 600px;
+    }
+
+    .dropdownBackground {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background-color: #eee;
+      border-radius: 5px;
+      transition: .5s;
+      transform-origin: 50% 0;
+      display: flex;
+      justify-content: center;
+      opacity: 0;
+    }
+
+
+    .dropdownBackground.open {
+      opacity: 1;
+    }
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      width: 60rem;
+      margin: 0 auto;
+    }
+
+    ul li {
+      flex: 1;
+      position: relative;
+      background-color: #ddc;
+      text-align: center;
+      margin: 0 .5rem;
+    }
+
+    li a div {
+      top: -20px;
+      display: none;
+      opacity: 0;
+      position: absolute;
+      overflow: hidden;
+      background-color: #eee;
+      width: 6rem;
+      height: 10rem;
+      padding: 20px;
+      box-shadow: 1px 1px 3px #666;
+      transition: all .5s;
+      transform: translateY(100px);
+      will-change: opacity;
+      display: none;
+    }
+
+    li.triggerin a div {
+      display: block;
+      /* opacity: 1; */
+    }
+
+    li.triggerin-active a div {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <p><a href="../">Link to list of JS30 exercises</a></p>
+  <nav>
+    <div class="dropdownBackground">
+      <span class="arrow"></span>
+    </div>
+
+    <ul class="dropdownul">
+      <li><a href="#">Pos 01
+          <div></div></a>
+      </li>
+      <li><a href="#">Pos 01
+          <div></div></a>
+      </li>
+      <li><a href="#">Pos 01
+          <div></div></a>
+      </li>
+    </ul>
+  </nav>
+  <script>
+    const triggers = document.querySelectorAll('.dropdownul li');
+    const background = document.querySelector('.dropdownBackground');
+    const nav = document.querySelector('nav');
+
+    const enter = function () {
+      this.classList.add('triggerin');
+      background.classList.add();
+
+      // old way
+      setTimeout(() => {
+          if (this.classList.contains('triggerin')) {
+            this.classList.add('triggerin-active')
+          }
+        },
+        150);
+      // new way
+      setTimeout(() => this.classList.contains('trigerin') && this.classList.add('triggerin-active'), 150);
+
+      background.classList.add('open');
+      const dropdown = this.querySelector('a div');
+      const dropdownCoords = dropdown.getBoundingClientRect();
+      const navcoords = nav.getBoundingClientRect();
+      const coords = {
+        height: dropdownCoords.height,
+        width: dropdownCoords.width,
+        top: dropdownCoords.top - navcoords.top,
+        left: dropdownCoords.left - navcoords.left
+      }
+      background.style.setProperty('width', `${coords.width}px`);
+      background.style.setProperty('height', `${coords.height}px`);
+      background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+    }
+
+    const leave = function () {
+      // console.log('leave');
+      this.classList.remove('triggerin', 'triggerin-active');
+      background.classList.remove('open');
+    }
+
+    triggers.forEach(trigger => trigger.addEventListener('mouseenter', enter));
+    triggers.forEach(trigger => trigger.addEventListener('mouseleave', leave));
+  </script>
+</body>
+
+</html>
